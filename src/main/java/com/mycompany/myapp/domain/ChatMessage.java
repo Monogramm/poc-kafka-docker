@@ -1,7 +1,5 @@
 package com.mycompany.myapp.domain;
 
-import com.mycompany.myapp.config.Constants;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
@@ -27,7 +25,7 @@ public class ChatMessage extends AbstractAuditingEntity implements Serializable 
     @Column(name = "text", length = 4096, nullable = false)
     private String text;
 
-    @JsonFormat(shape=JSonFormat.Shape.STRING, pattern="HH:mm dd.MM.yyyy")
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="HH:mm dd.MM.yyyy")
     @NotNull
     @Column(name = "time", length = 60, nullable = false)
     private Date time;
@@ -61,7 +59,7 @@ public class ChatMessage extends AbstractAuditingEntity implements Serializable 
         return time;
     }
 
-    public void setPassword(Date time) {
+    public void setTime(Date time) {
         this.time = time;
     }
 
@@ -73,7 +71,7 @@ public class ChatMessage extends AbstractAuditingEntity implements Serializable 
         this.user = user;
     }
 
-    public String getLastName() {
+    public String getRoom() {
         return room;
     }
 

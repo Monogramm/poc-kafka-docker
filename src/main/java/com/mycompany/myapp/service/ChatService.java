@@ -1,5 +1,9 @@
 package com.mycompany.myapp.service;
 
+import java.util.Collections;
+import java.util.Date;
+import java.util.List;
+
 import com.mycompany.myapp.domain.ChatMessage;
 
 import org.slf4j.Logger;
@@ -16,7 +20,7 @@ public class ChatService {
 
     private final Logger log = LoggerFactory.getLogger(ChatService.class);
 
-    private static final String KAFKA_CHAT_TOPIC = "kafka-chat"
+    private static final String KAFKA_CHAT_TOPIC = "kafka-chat";
 
     public List<String> getChatrooms() {
         // TODO Get list of available chatrooms

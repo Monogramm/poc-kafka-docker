@@ -1,16 +1,20 @@
 package com.mycompany.myapp.web.rest;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 import com.mycompany.myapp.ApPoCApp;
+import com.mycompany.myapp.service.ChatService;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockitoAnnotations;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 /**
  * Test class for the ChatResource REST controller.
  *
@@ -21,11 +25,14 @@ public class ChatResourceIT {
 
     private MockMvc restMockMvc;
 
+    @Autowired
+    private ChatService chatService;
+
     @BeforeEach
     public void setUp() {
         MockitoAnnotations.initMocks(this);
 
-        ChatResource chatResource = new ChatResource();
+        ChatResource chatResource = new ChatResource(this.chatService);
         restMockMvc = MockMvcBuilders
             .standaloneSetup(chatResource)
             .build();
