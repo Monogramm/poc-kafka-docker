@@ -1,0 +1,10 @@
+/**
+ * The Chatroom entity.
+ */
+entity Chatroom {
+	/**
+	* The chatroom name attribute.
+	*/
+	name String required
+}
+
