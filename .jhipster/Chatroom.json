@@ -1,0 +1,22 @@
+{
+    "name": "Chatroom",
+    "fields": [
+        {
+            "fieldName": "name",
+            "javadoc": "The chatroom name attribute.",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200213205100",
+    "javadoc": "The Chatroom entity.",
+    "entityTableName": "chatroom",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}
