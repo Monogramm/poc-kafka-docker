@@ -1,3 +1,9 @@
+[uri_license]: http://www.gnu.org/licenses/agpl.html
+[uri_license_image]: https://img.shields.io/badge/License-AGPL%20v3-blue.svg
+
+[![License: AGPL v3][uri_license_image]][uri_license]
+[![Managed with Taiga.io](https://img.shields.io/badge/Managed%20with-TAIGA.io-709f14.svg)](https://tree.taiga.io/project/monogrammbot-monogrammpoc-kafka-docker/ "Managed with Taiga.io")
+
 # ApPoC
 
 This application was generated using JHipster 6.7.0, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v6.7.0](https://www.jhipster.tech/documentation-archive/v6.7.0).
