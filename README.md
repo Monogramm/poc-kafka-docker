@@ -18,6 +18,19 @@
 [![Docker Size](https://images.microbadger.com/badges/image/monogramm/poc-kafka-docker.svg)](https://microbadger.com/images/monogramm/poc-kafka-docker)
 -->
 
+# Welcome to GitHub pages
+
+This project was created in order to report on the progress of training on these different technologies :
+-   Source code management using **Git**
+-   Application packaging via **Docker**
+-   Application deployment via **docker-compose**
+-   Starting with **Jhipster**, a **Java Spring Boot / Angular** application generator
+-   Automation of build, test and code quality (with **Sonar**) of **Java / Angular** application under **Travis-CI**
+-   Application deployment via **Kubernetes**
+-   Generation and redaction of technical documentation
+-   Applicative monitoring using ELK (**Elastic Search / Logstash / Kibana**)
+-   **Angular screen** and **Java Spring web-services** development
+
 # ApPoC
 
 This application was generated using JHipster 6.7.0, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v6.7.0](https://www.jhipster.tech/documentation-archive/v6.7.0).
