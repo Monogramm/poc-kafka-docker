@@ -7,6 +7,7 @@
 [![Build Status](https://travis-ci.org/Monogramm/poc-kafka-docker.svg)](https://travis-ci.org/Monogramm/poc-kafka-docker)
 ![Snyk Vulnerabilities for GitHub Repo](https://img.shields.io/snyk/vulnerabilities/github/monogramm/poc-kafka-docker)
 ![Coveralls github](https://img.shields.io/coveralls/github/monogramm/poc-kafka-docker)
+[![Deployed with](https://img.shields.io/badge/Deployed%20with-Heroku-blueviolet)](https://ap-po-c.herokuapp.com/ "Heroku")
 <!--
 [TODO] If project uses Coveralls for code coverage:
 
