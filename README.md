@@ -2,8 +2,11 @@
 [uri_license_image]: https://img.shields.io/badge/License-AGPL%20v3-blue.svg
 
 [![License: AGPL v3][uri_license_image]][uri_license]
+[![Docs](https://img.shields.io/badge/Docs-Github%20Pages-blue)](https://monogramm.github.io/poc-kafka-docker/)
 [![Managed with Taiga.io](https://img.shields.io/badge/Managed%20with-TAIGA.io-709f14.svg)](https://tree.taiga.io/project/monogrammbot-monogrammpoc-kafka-docker/ "Managed with Taiga.io")
 [![Build Status](https://travis-ci.org/Monogramm/poc-kafka-docker.svg)](https://travis-ci.org/Monogramm/poc-kafka-docker)
+![Snyk Vulnerabilities for GitHub Repo](https://img.shields.io/snyk/vulnerabilities/github/monogramm/poc-kafka-docker)
+![Coveralls github](https://img.shields.io/coveralls/github/monogramm/poc-kafka-docker)
 <!--
 [TODO] If project uses Coveralls for code coverage:
 
