@@ -1,3 +1,40 @@
+[uri_license]: https://www.gnu.org/licenses/agpl-3.0.html
+[uri_license_image]: https://img.shields.io/badge/License-AGPL%20v3-blue.svg
+
+[![License: AGPL v3][uri_license_image]][uri_license]
+[![Docs](https://img.shields.io/badge/Docs-Github%20Pages-blue)](https://monogramm.github.io/poc-kafka-docker/)
+[![Managed with Taiga.io](https://img.shields.io/badge/Managed%20with-TAIGA.io-709f14.svg)](https://tree.taiga.io/project/monogrammbot-monogrammpoc-kafka-docker/ "Managed with Taiga.io")
+[![Build Status](https://travis-ci.org/Monogramm/poc-kafka-docker.svg)](https://travis-ci.org/Monogramm/poc-kafka-docker)
+![Snyk Vulnerabilities for GitHub Repo](https://img.shields.io/snyk/vulnerabilities/github/monogramm/poc-kafka-docker)
+![Coveralls github](https://img.shields.io/coveralls/github/monogramm/poc-kafka-docker)
+[![Deployed with](https://img.shields.io/badge/Deployed%20with-Heroku-blueviolet)](https://ap-po-c.herokuapp.com/ "Heroku")
+<!--
+[TODO] If project uses Coveralls for code coverage:
+
+[![Coverage Status](https://coveralls.io/repos/github/Monogramm/poc-kafka-docker/badge.svg?branch=master)](https://coveralls.io/github/Monogramm/poc-kafka-docker?branch=master)
+-->
+<!--
+[TODO] If project is deployed to DockerHub:
+
+[![Docker Automated buid](https://img.shields.io/docker/cloud/build/monogramm/poc-kafka-docker.svg)](https://hub.docker.com/r/monogramm/poc-kafka-docker/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/monogramm/poc-kafka-docker.svg)](https://hub.docker.com/r/monogramm/poc-kafka-docker/)
+[![Docker Version](https://images.microbadger.com/badges/version/monogramm/poc-kafka-docker.svg)](https://microbadger.com/images/monogramm/poc-kafka-docker)
+[![Docker Size](https://images.microbadger.com/badges/image/monogramm/poc-kafka-docker.svg)](https://microbadger.com/images/monogramm/poc-kafka-docker)
+-->
+
+# Welcome to GitHub pages
+
+This project was created in order to report on the progress of training on these different technologies :
+-   Source code management using **Git**
+-   Application packaging via **Docker**
+-   Application deployment via **docker-compose**
+-   Starting with **Jhipster**, a **Java Spring Boot / Angular** application generator
+-   Automation of build, test and code quality (with **Sonar**) of **Java / Angular** application under **Travis-CI**
+-   Application deployment via **Kubernetes**
+-   Generation and redaction of technical documentation
+-   Applicative monitoring using ELK (**Elastic Search / Logstash / Kibana**)
+-   **Angular screen** and **Java Spring web-services** development
+
 # ApPoC
 
 This application was generated using JHipster 6.7.0, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v6.7.0](https://www.jhipster.tech/documentation-archive/v6.7.0).

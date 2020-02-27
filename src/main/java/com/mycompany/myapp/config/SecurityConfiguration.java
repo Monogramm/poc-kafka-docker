@@ -89,7 +89,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .antMatchers("/management/info").permitAll()
             .antMatchers("/management/prometheus").permitAll()
             .antMatchers("/management/**").hasAuthority(AuthoritiesConstants.ADMIN)
-            .antMatchers("/api/ApPoC-kafka/publish").permitAll()
+            .antMatchers("/api/ap-po-c-kafka/publish").permitAll()
         .and()
             .httpBasic()
         .and()
