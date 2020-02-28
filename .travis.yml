@@ -44,7 +44,13 @@ script:
   - ./mvnw -ntp checkstyle:check
   - ./mvnw -ntp clean verify jacoco:report coveralls:report
   - ./mvnw -ntp com.github.eirslett:frontend-maven-plugin:npm -Dfrontend.npm.arguments='run test' -Dmaven.repo.local=$MAVEN_USER_HOME
-  - ./mvnw -ntp verify -Pprod -DskipTests
+  - ./mvnw -ntp verify jib:dockerBuild -Pprod -DskipTests
+  - docker images
+  - docker images | grep 'appoc'
+  # Run project production docker container
+  - docker-compose -f src/main/docker/app.yml up -d && sleep 120
+  - docker-compose -f src/main/docker/app.yml logs "appoc-app"
+  - docker-compose -f src/main/docker/app.yml ps "appoc-app" | grep "Up" || exit 1
 notifications:
   webhooks:
     on_success: change # options: [always|never|change] default: always
