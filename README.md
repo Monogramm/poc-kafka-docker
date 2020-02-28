@@ -53,6 +53,14 @@ You will only need to run this command when dependencies change in [package.json
 
 We use npm scripts and [Webpack][] as our build system.
 
+Then start the Kafka Docker containers:
+
+    docker-compose -f src/main/kafka.yml up -d
+
+If not previously done, you must create the `kafka-chat` topic:
+
+    docker-compose -f src/main/kafka.yml exec kafka bash -c 'kafka-topics --create --topic kafka-chat --partitions 1 --replication-factor 1 --if-not-exists --zookeeper $KAFKA_ZOOKEEPER_CONNECT'
+
 Run the following commands in two separate terminals to create a blissful development experience where your browser
 auto-refreshes when files change on your hard drive.
 
