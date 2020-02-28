@@ -49,14 +49,16 @@ script:
   - docker images | grep 'appoc'
   # Run project production docker container
   - docker-compose -f src/main/docker/jhipster-registry.yml up -d && sleep 120
-  - docker-compose -f src/main/docker/app.yml up -d && sleep 30
+  - docker-compose -f src/main/docker/app.yml up -d && sleep 60
   - docker-compose -f src/main/docker/app.yml ps
   - docker-compose -f src/main/docker/app.yml logs "jhipster-registry"
-  - docker-compose -f src/main/docker/app.yml ps "jhipster-registry" | grep "Up" || exit 1
   - docker-compose -f src/main/docker/app.yml logs "appoc-app"
   - docker-compose -f src/main/docker/app.yml ps "appoc-app" | grep "Up" || exit 1
   - docker-compose -f src/main/docker/app.yml down
-  - docker-compose -f src/main/docker/app.yml up -d && sleep 120
+  - docker-compose -f src/main/docker/jhipster-registry.yml up -d && sleep 120
+  - docker-compose -f src/main/docker/app.yml up -d && sleep 60
+  - docker-compose -f src/main/docker/app.yml ps
+  - docker-compose -f src/main/docker/app.yml logs "jhipster-registry"
   - docker-compose -f src/main/docker/app.yml logs "appoc-app"
   - docker-compose -f src/main/docker/app.yml ps "appoc-app" | grep "Up" || exit 1
 notifications:
