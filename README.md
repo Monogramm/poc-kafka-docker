@@ -1,252 +1,93 @@
-[uri_license]: https://www.gnu.org/licenses/agpl-3.0.html
-[uri_license_image]: https://img.shields.io/badge/License-AGPL%20v3-blue.svg
+# JHipster-generated Kubernetes configuration
 
-[![License: AGPL v3][uri_license_image]][uri_license]
-[![Docs](https://img.shields.io/badge/Docs-Github%20Pages-blue)](https://monogramm.github.io/poc-kafka-docker/)
-[![Managed with Taiga.io](https://img.shields.io/badge/Managed%20with-TAIGA.io-709f14.svg)](https://tree.taiga.io/project/monogrammbot-monogrammpoc-kafka-docker/ "Managed with Taiga.io")
-[![Build Status](https://travis-ci.org/Monogramm/poc-kafka-docker.svg)](https://travis-ci.org/Monogramm/poc-kafka-docker)
-![Snyk Vulnerabilities for GitHub Repo](https://img.shields.io/snyk/vulnerabilities/github/monogramm/poc-kafka-docker)
-![Coveralls github](https://img.shields.io/coveralls/github/monogramm/poc-kafka-docker)
-[![Deployed with](https://img.shields.io/badge/Deployed%20with-Heroku-blueviolet)](https://ap-po-c.herokuapp.com/ "Heroku")
-<!--
-[TODO] If project uses Coveralls for code coverage:
+## Preparation
 
-[![Coverage Status](https://coveralls.io/repos/github/Monogramm/poc-kafka-docker/badge.svg?branch=master)](https://coveralls.io/github/Monogramm/poc-kafka-docker?branch=master)
--->
-<!--
-[TODO] If project is deployed to DockerHub:
-
-[![Docker Automated buid](https://img.shields.io/docker/cloud/build/monogramm/poc-kafka-docker.svg)](https://hub.docker.com/r/monogramm/poc-kafka-docker/)
-[![Docker Pulls](https://img.shields.io/docker/pulls/monogramm/poc-kafka-docker.svg)](https://hub.docker.com/r/monogramm/poc-kafka-docker/)
-[![Docker Version](https://images.microbadger.com/badges/version/monogramm/poc-kafka-docker.svg)](https://microbadger.com/images/monogramm/poc-kafka-docker)
-[![Docker Size](https://images.microbadger.com/badges/image/monogramm/poc-kafka-docker.svg)](https://microbadger.com/images/monogramm/poc-kafka-docker)
--->
-
-# Welcome to GitHub pages
-
-This project was created in order to report on the progress of training on these different technologies :
--   Source code management using **Git**
--   Application packaging via **Docker**
--   Application deployment via **docker-compose**
--   Starting with **Jhipster**, a **Java Spring Boot / Angular** application generator
--   Automation of build, test and code quality (with **Sonar**) of **Java / Angular** application under **Travis-CI**
--   Application deployment via **Kubernetes**
--   Generation and redaction of technical documentation
--   Applicative monitoring using ELK (**Elastic Search / Logstash / Kibana**)
--   **Angular screen** and **Java Spring web-services** development
-
-# ApPoC
-
-This application was generated using JHipster 6.7.0, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v6.7.0](https://www.jhipster.tech/documentation-archive/v6.7.0).
-
-## Development
-
-Before you can build this project, you must install and configure the following dependencies on your machine:
-
-1. [Node.js][]: We use Node to run a development web server and build the project.
-   Depending on your system, you can install Node either from source or as a pre-packaged bundle.
-
-After installing Node, you should be able to run the following command to install development tools.
-You will only need to run this command when dependencies change in [package.json](package.json).
-
-    npm install
-
-We use npm scripts and [Webpack][] as our build system.
-
-Run the following commands in two separate terminals to create a blissful development experience where your browser
-auto-refreshes when files change on your hard drive.
-
-    ./mvnw
-    npm start
-
-Npm is also used to manage CSS and JavaScript dependencies used in this application. You can upgrade dependencies by
-specifying a newer version in [package.json](package.json). You can also run `npm update` and `npm install` to manage dependencies.
-Add the `help` flag on any command to see how you can use it. For example, `npm help update`.
-
-The `npm run` command will list all of the scripts available to run for this project.
-
-### PWA Support
-
-JHipster ships with PWA (Progressive Web App) support, and it's turned off by default. One of the main components of a PWA is a service worker.
-
-The service worker initialization code is commented out by default. To enable it, uncomment the following code in `src/main/webapp/index.html`:
-
-```html
-<script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('./service-worker.js').then(function() {
-      console.log('Service Worker Registered');
-    });
-  }
-</script>
-```
-
-Note: [Workbox](https://developers.google.com/web/tools/workbox/) powers JHipster's service worker. It dynamically generates the `service-worker.js` file.
-
-### Managing dependencies
-
-For example, to add [Leaflet][] library as a runtime dependency of your application, you would run following command:
-
-    npm install --save --save-exact leaflet
-
-To benefit from TypeScript type definitions from [DefinitelyTyped][] repository in development, you would run following command:
-
-    npm install --save-dev --save-exact @types/leaflet
-
-Then you would import the JS and CSS files specified in library's installation instructions so that [Webpack][] knows about them:
-Edit [src/main/webapp/app/vendor.ts](src/main/webapp/app/vendor.ts) file:
+You will need to push your image to a registry. If you have not done so, use the following commands to tag and push the images:
 
 ```
-import 'leaflet/dist/leaflet.js';
+$ docker image tag appoc monogramm/appoc
+$ docker push monogramm/appoc
 ```
 
-Edit [src/main/webapp/content/scss/vendor.scss](src/main/webapp/content/scss/vendor.scss) file:
+## Deployment
+
+You can deploy all your apps by running the below bash command:
 
 ```
-@import '~leaflet/dist/leaflet.css';
+./kubectl-apply.sh
 ```
 
-Note: There are still a few other things remaining to do for Leaflet that we won't detail here.
+## Exploring your services
 
-For further instructions on how to develop with JHipster, have a look at [Using JHipster in development][].
-
-### Using Angular CLI
-
-You can also use [Angular CLI][] to generate some custom client code.
-
-For example, the following command:
-
-    ng generate component my-component
-
-will generate few files:
-
-    create src/main/webapp/app/my-component/my-component.component.html
-    create src/main/webapp/app/my-component/my-component.component.ts
-    update src/main/webapp/app/app.module.ts
-
-### Doing API-First development using openapi-generator
-
-[OpenAPI-Generator]() is configured for this application. You can generate API code from the `src/main/resources/swagger/api.yml` definition file by running:
-
-```bash
-./mvnw generate-sources
-```
-
-Then implements the generated delegate classes with `@Service` classes.
-
-To edit the `api.yml` definition file, you can use a tool such as [Swagger-Editor](). Start a local instance of the swagger-editor using docker by running: `docker-compose -f src/main/docker/swagger-editor.yml up -d`. The editor will then be reachable at [http://localhost:7742](http://localhost:7742).
-
-Refer to [Doing API-First development][] for more details.
-
-## Building for production
-
-### Packaging as jar
-
-To build the final jar and optimize the ApPoC application for production, run:
-
-    ./mvnw -Pprod clean verify
-
-This will concatenate and minify the client CSS and JavaScript files. It will also modify `index.html` so it references these new files.
-To ensure everything worked, run:
-
-    java -jar target/*.jar
-
-Then navigate to [http://localhost:8080](http://localhost:8080) in your browser.
-
-Refer to [Using JHipster in production][] for more details.
-
-### Packaging as war
-
-To package your application as a war in order to deploy it to an application server, run:
-
-    ./mvnw -Pprod,war clean verify
-
-## Testing
-
-To launch your application's tests, run:
-
-    ./mvnw verify
-
-### Client tests
-
-Unit tests are run by [Jest][] and written with [Jasmine][]. They're located in [src/test/javascript/](src/test/javascript/) and can be run with:
-
-    npm test
-
-For more information, refer to the [Running tests page][].
-
-### Code quality
-
-Sonar is used to analyse code quality. You can start a local Sonar server (accessible on http://localhost:9001) with:
+Use these commands to find your application's IP addresses:
 
 ```
-docker-compose -f src/main/docker/sonar.yml up -d
+$ kubectl get svc appoc
 ```
 
-You can run a Sonar analysis with using the [sonar-scanner](https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner) or by using the maven plugin.
+## Scaling your deployments
 
-Then, run a Sonar analysis:
-
-```
-./mvnw -Pprod clean verify sonar:sonar
-```
-
-If you need to re-run the Sonar phase, please be sure to specify at least the `initialize` phase since Sonar properties are loaded from the sonar-project.properties file.
+You can scale your apps using
 
 ```
-./mvnw initialize sonar:sonar
+$ kubectl scale deployment <app-name> --replicas <replica-count>
 ```
 
-or
+## zero-downtime deployments
 
-For more information, refer to the [Code quality page][].
+The default way to update a running app in kubernetes, is to deploy a new image tag to your docker registry and then deploy it using
 
-## Using Docker to simplify development (optional)
+```
+$ kubectl set image deployment/<app-name>-app <app-name>=<new-image>
+```
 
-You can use Docker to improve your JHipster development experience. A number of docker-compose configuration are available in the [src/main/docker](src/main/docker) folder to launch required third party services.
+Using livenessProbes and readinessProbe allow you to tell Kubernetes about the state of your applications, in order to ensure availablity of your services. You will need minimum 2 replicas for every application deployment if you want to have zero-downtime deployed.
+This is because the rolling upgrade strategy first stops a running replica in order to place a new. Running only one replica, will cause a short downtime during upgrades.
 
-For example, to start a mysql database in a docker container, run:
+## Monitoring tools
 
-    docker-compose -f src/main/docker/mysql.yml up -d
+### JHipster console
 
-To stop it and remove the container, run:
+Your application logs can be found in JHipster console (powered by Kibana). You can find its service details by
 
-    docker-compose -f src/main/docker/mysql.yml down
+```
+$ kubectl get svc jhipster-console
+```
 
-You can also fully dockerize your application and all the services that it depends on.
-To achieve this, first build a docker image of your app by running:
+- If you have chosen _Ingress_, then you should be able to access Kibana using the given ingress domain.
+- If you have chosen _NodePort_, then point your browser to an IP of any of your nodes and use the node port described in the output.
+- If you have chosen _LoadBalancer_, then use the IaaS provided LB IP
 
-    ./mvnw -Pprod verify jib:dockerBuild
+## JHipster registry
 
-Then run:
+The registry is deployed using a headless service in kubernetes, so the primary service has no IP address, and cannot get a node port. You can create a secondary service for any type, using:
 
-    docker-compose -f src/main/docker/app.yml up -d
+```
+$ kubectl expose service jhipster-registry --type=NodePort --name=exposed-registry
+```
 
-For more information refer to [Using Docker and Docker-Compose][], this page also contains information on the docker-compose sub-generator (`jhipster docker-compose`), which is able to generate docker configurations for one or several JHipster applications.
+and explore the details using
 
-## Continuous Integration (optional)
+```
+$ kubectl get svc exposed-registry
+```
 
-To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`), this will let you generate configuration files for a number of Continuous Integration systems. Consult the [Setting up Continuous Integration][] page for more information.
+For scaling the JHipster registry, use
 
-[jhipster homepage and latest documentation]: https://www.jhipster.tech
-[jhipster 6.7.0 archive]: https://www.jhipster.tech/documentation-archive/v6.7.0
-[using jhipster in development]: https://www.jhipster.tech/documentation-archive/v6.7.0/development/
-[service discovery and configuration with the jhipster-registry]: https://www.jhipster.tech/documentation-archive/v6.7.0/microservices-architecture/#jhipster-registry
-[using docker and docker-compose]: https://www.jhipster.tech/documentation-archive/v6.7.0/docker-compose
-[using jhipster in production]: https://www.jhipster.tech/documentation-archive/v6.7.0/production/
-[running tests page]: https://www.jhipster.tech/documentation-archive/v6.7.0/running-tests/
-[code quality page]: https://www.jhipster.tech/documentation-archive/v6.7.0/code-quality/
-[setting up continuous integration]: https://www.jhipster.tech/documentation-archive/v6.7.0/setting-up-ci/
-[node.js]: https://nodejs.org/
-[yarn]: https://yarnpkg.org/
-[webpack]: https://webpack.github.io/
-[angular cli]: https://cli.angular.io/
-[browsersync]: https://www.browsersync.io/
-[jest]: https://facebook.github.io/jest/
-[jasmine]: https://jasmine.github.io/2.0/introduction.html
-[protractor]: https://angular.github.io/protractor/
-[leaflet]: https://leafletjs.com/
-[definitelytyped]: https://definitelytyped.org/
-[openapi-generator]: https://openapi-generator.tech
-[swagger-editor]: https://editor.swagger.io
-[doing api-first development]: https://www.jhipster.tech/documentation-archive/v6.7.0/doing-api-first-development/
+```
+$ kubectl scale statefulset jhipster-registry --replicas 3
+```
+
+## Troubleshooting
+
+> my apps doesn't get pulled, because of 'imagePullBackof'
+
+Check the docker registry your Kubernetes cluster is accessing. If you are using a private registry, you should add it to your namespace by `kubectl create secret docker-registry` (check the [docs](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/) for more info)
+
+> my applications are stopped, before they can boot up
+
+This can occur if your cluster has low resource (e.g. Minikube). Increase the `initialDelaySeconds` value of livenessProbe of your deployments
+
+> my applications are starting very slow, despite I have a cluster with many resources
+
+The default setting are optimized for middle-scale clusters. You are free to increase the JAVA_OPTS environment variable, and resource requests and limits to improve the performance. Be careful!

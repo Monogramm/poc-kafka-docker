@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: appoc-elasticsearch
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: appoc-elasticsearch
+  template:
+    metadata:
+      labels:
+        app: appoc-elasticsearch
+    spec:
+      volumes:
+        - name: data
+          emptyDir: {}
+      initContainers:
+        - name: init-sysctl
+          image: busybox
+          command:
+            - sysctl
+            - -w
+            - vm.max_map_count=262144
+          securityContext:
+            privileged: true
+      containers:
+        - name: elasticsearch
+          image: docker.elastic.co/elasticsearch/elasticsearch:6.8.6
+          ports:
+            - containerPort: 9200
+              name: http
+              protocol: TCP
+            - containerPort: 9300
+              name: transport
+              protocol: TCP
+          volumeMounts:
+            - name: data
+              mountPath: /usr/share/elasticsearch/data/
+          resources:
+            requests:
+              memory: '512Mi'
+              cpu: '500m'
+            limits:
+              memory: '1Gi'
+              cpu: '1'
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: appoc-elasticsearch
+  namespace: default
+spec:
+  selector:
+    app: appoc-elasticsearch
+  ports:
+    - port: 9200
+      name: http
+      protocol: TCP
+    - port: 9300
+      name: transport
+      protocol: TCP

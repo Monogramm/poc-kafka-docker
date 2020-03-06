@@ -37,6 +37,16 @@
     "enableTranslation": false,
     "blueprints": [],
     "herokuAppName": "ap-po-c",
-    "herokuDeployType": "git"
+    "herokuDeployType": "git",
+    "appsFolders": ["poc-kafka-docker"],
+    "directoryPath": "../",
+    "dockerRepositoryName": "monogramm",
+    "dockerPushCommand": "docker push",
+    "kubernetesNamespace": "default",
+    "kubernetesServiceType": "LoadBalancer",
+    "kubernetesUseDynamicStorage": false,
+    "ingressDomain": "",
+    "monitoring": "elk",
+    "istio": false
   }
 }
