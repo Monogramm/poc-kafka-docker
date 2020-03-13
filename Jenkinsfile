@@ -1,6 +1,11 @@
 #!/usr/bin/env groovy
 
 node {
+    parameters {
+        string(name: 'DOCKER_USERNAME', defaultValue: 'Kamoulox', description: 'Enter a username')
+
+        password(name: 'DOCKER_PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
+    }
     stage('checkout') {
         checkout scm
     }
@@ -42,5 +47,16 @@ node {
     stage('packaging') {
         sh "./mvnw -ntp verify -Pprod -DskipTests"
         archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
+    }
+
+    stage('Build the docker image') {
+        sh "./mvnw package -Pprod -DskipTests jib:dockerBuild"
+        sh "docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD"
+        sh "docker image tag appoc monogramm/poc-kafka-docker"
+    }
+
+    stage ('Push the image to Docker Hub') {
+        sh "docker push monogramm/poc-kafka-docker"
+        sh "docker logout"
     }
 }

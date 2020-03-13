@@ -66,6 +66,7 @@ script:
   - docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD #These variables are defined in the travis repository
   - docker image tag appoc monogramm/poc-kafka-docker
   - docker push monogramm/poc-kafka-docker
+  - docker logout
 notifications:
   webhooks:
     on_success: change # options: [always|never|change] default: always
