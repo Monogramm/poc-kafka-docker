@@ -13,6 +13,8 @@ node {
     stage('check java') {
         sh "java -version"
         sh "javac -version"
+        sh "echo $JAVA_HOME"
+        sh "which javac"
     }
 
     stage('clean') {
