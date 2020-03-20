@@ -12,6 +12,7 @@ node {
 
     stage('check java') {
         sh "java -version"
+        sh "javac -version"
     }
 
     stage('clean') {
