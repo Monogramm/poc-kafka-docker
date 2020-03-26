@@ -43,3 +43,7 @@ services:
     environment:
       - SPRING_CLOUD_CONFIG_SERVER_COMPOSITE_0_TYPE=native
       - SPRING_CLOUD_CONFIG_SERVER_COMPOSITE_0_SEARCH_LOCATIONS=file:./central-config/docker-config/
+  appoc-mailer:
+    extends:
+      file: mailer.yml
+      service: mailer

@@ -58,8 +58,12 @@ log() {
 
 case $1 in
 
-    build)
-    log 'Building step ...'
+    build-dev)
+    log 'Building default profile step ...'
+    ./mvnw package -DskipTests jib:dockerBuild;;
+
+    build-prod)
+    log 'Building production profile step ...'
     ./mvnw package -Pprod -DskipTests jib:dockerBuild;;
 
     push)
@@ -187,7 +191,8 @@ case $1 in
     echo "ApPoC help center"
     echo ""
     echo "manage.sh help                    Display this help"
-    echo "manage.sh build                   Build the docker package"
+    echo "manage.sh build-prod              Build the docker package using production profile"
+    echo "manage.sh build-dev               Build the docker package using default profile"
     echo "manage.sh push                    Create the image then push it to docker"
     echo "manage.sh test                    Executing the back-end and front-end tests"
     echo ""
