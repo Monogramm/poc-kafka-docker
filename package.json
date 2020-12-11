@@ -32,7 +32,7 @@
     "swagger-ui-dist": "3.24.3",
     "sockjs-client": "1.4.0",
     "webstomp-client": "1.2.6",
-    "tslib": "1.10.0",
+    "tslib": "1.14.1",
     "zone.js": "0.10.2"
   },
   "devDependencies": {
